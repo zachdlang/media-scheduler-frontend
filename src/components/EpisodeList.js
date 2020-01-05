@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import { Columns, Container, Loader } from 'react-bulma-components'
+import { Columns, Container, Loader } from 'react-bulma-components';
 import Episode from './Episode';
 import axios from 'axios';
-import { toast } from 'bulma-toast'
+import { toast } from 'bulma-toast';
 
 class EpisodeList extends Component {
   state = {
@@ -38,9 +38,7 @@ class EpisodeList extends Component {
         <Columns>
           {
             this.state.episodes.map((episode) => (
-              <Columns.Column size="one-quarter">
-                <Episode key={episode.id} episode={episode} />
-              </Columns.Column>
+              <Episode key={episode.id} episode={episode} />
             ))
           }
         </Columns>
