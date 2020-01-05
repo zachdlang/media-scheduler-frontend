@@ -18,7 +18,12 @@ class Episode extends Component {
     return (
       <Columns.Column size="one-quarter">
         <Card>
-          <Card.Image size="16by9" src={episode.image || placeholder} alt={episode.show_name} />
+          <Card.Image
+            size="16by9"
+            src={episode.image}
+            fallback={placeholder}
+            alt={episode.name}
+          />
           <Card.Content>
             <Content>
               <Heading size={6}>
