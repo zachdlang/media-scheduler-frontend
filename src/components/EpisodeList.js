@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Columns, Container, Loader } from 'react-bulma-components'
 import Episode from './Episode';
 import axios from 'axios';
+import { toast } from 'bulma-toast'
 
 class EpisodeList extends Component {
   state = {
@@ -11,9 +12,16 @@ class EpisodeList extends Component {
 
   componentDidMount() {
     axios
-      .get('http://localhost:8000/episode/list')
+      .get(`${process.env.REACT_APP_API_URL}/episode/list`)
       .then((res) => this.setState({ episodes: res.data, isLoading: false }))
-      .catch((error) => console.log(error.response));
+      .catch((error) => {
+        this.setState({ isLoading: false });
+        toast({
+          message: error.response.data,
+          type: 'is-danger',
+          animate: { in: 'fadeIn', out: 'fadeOut' }
+        });
+      });
   };
 
   render() {
