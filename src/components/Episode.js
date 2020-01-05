@@ -16,7 +16,11 @@ class Episode extends Component {
   render() {
     const episode = this.props.episode;
     return (
-      <Columns.Column size="one-quarter">
+      <Columns.Column
+      tablet={{ size: 'one-third' }}
+      mobile={{ size: 12 }}
+      desktop={{ size: 'one-quarter' }}
+      >
         <Card>
           <Card.Image
             size="16by9"
