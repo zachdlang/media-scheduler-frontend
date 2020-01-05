@@ -25,7 +25,8 @@ class Episode extends Component {
                 {episode.show_name}
               </Heading>
               {this.formatEpisode()} - {episode.name}
-              {episode.airdate_str}
+              <br />
+              <small className="has-text-grey">{episode.airdate_str}</small>
             </Content>
           </Card.Content>
           <Card.Footer>
