@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Menu from './components/Menu';
-import EpisodeList from './components/EpisodeList';
+import EpisodeDateList from './components/EpisodeDateList';
 import 'react-bulma-components/dist/react-bulma-components.min.css';
 
 require('dotenv').config()
@@ -17,7 +17,7 @@ class App extends Component {
             path='/'
             render={(props) => (
               <React.Fragment>
-                <EpisodeList />
+                <EpisodeDateList />
               </React.Fragment>
             )}
           />
