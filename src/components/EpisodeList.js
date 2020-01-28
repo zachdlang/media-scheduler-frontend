@@ -16,8 +16,14 @@ class EpisodeList extends Component {
       .then((res) => this.setState({ episodes: res.data, isLoading: false }))
       .catch((error) => {
         this.setState({ isLoading: false });
+        let message;
+        if (error.response) {
+          message = error.response.data
+        } else {
+          message = error.toString();
+        }
         toast({
-          message: error.response.data,
+          message: message,
           type: 'is-danger',
           animate: { in: 'fadeIn', out: 'fadeOut' }
         });
