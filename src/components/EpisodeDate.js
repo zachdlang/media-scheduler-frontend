@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Section, Container, Heading, Columns } from 'react-bulma-components';
+import { Section, Heading, Columns } from 'react-bulma-components';
 import Episode from './Episode';
 
 class EpisodeDate extends Component {
@@ -9,16 +9,14 @@ class EpisodeDate extends Component {
 
     return (
       <Section>
-        <Container>
-          <Heading>{date}</Heading>
-          <Columns>
-            {
-              episodes.map((episode) => (
-                <Episode key={episode.id} episode={episode} />
-              ))
-            }
-          </Columns>
-        </Container>
+        <Heading>{date}</Heading>
+        <Columns>
+          {
+            episodes.map((episode) => (
+              <Episode key={episode.id} episode={episode} />
+            ))
+          }
+        </Columns>
       </Section>
     );
   }
