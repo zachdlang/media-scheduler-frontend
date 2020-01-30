@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Container, Loader } from 'react-bulma-components';
 import EpisodeDate from './EpisodeDate';
-import { APIRequest } from '../api/Request';
+import { getEpisodes } from '../api/episodes';
 
 const groupEpisodes = (episodes) => {
   let dates = episodes.reduce((r, a) => {
@@ -19,8 +19,8 @@ class EpisodeDateList extends Component {
   };
 
   componentDidMount() {
-    APIRequest('/episode/list')
-      .then((res) => this.setState({ dates: groupEpisodes(res.data) }))
+    getEpisodes()
+      .then((episodes) => this.setState({ dates: groupEpisodes(episodes) }))
       .finally(() => this.setState({ isLoading: false }));
   };
 
