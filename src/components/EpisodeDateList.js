@@ -18,6 +18,13 @@ class EpisodeDateList extends Component {
     isLoading: true
   };
 
+  removeDate = (date) => {
+    // Make a deep copy
+    let dates = JSON.parse(JSON.stringify(this.state.dates));
+    delete dates[date];
+    this.setState({ dates: dates });
+  }
+
   componentDidMount() {
     getEpisodes()
       .then((episodes) => this.setState({ dates: groupEpisodes(episodes) }))
@@ -37,7 +44,12 @@ class EpisodeDateList extends Component {
       <Container>
         {
           Object.keys(this.state.dates).map((key) => (
-            <EpisodeDate key={key} date={key} episodes={this.state.dates[key]} />
+            <EpisodeDate
+              key={key}
+              date={key}
+              episodes={this.state.dates[key]}
+              removeSelf={this.removeDate}
+            />
           ))
         }
       </Container>

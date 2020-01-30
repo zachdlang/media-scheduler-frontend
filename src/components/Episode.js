@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Columns, Card, Content, Heading } from 'react-bulma-components';
 import placeholder from '../images/episode_placeholder.png';
+import { markWatched } from '../api/episodes';
 
 function lpad(str, max) {
   str = str.toString();
@@ -11,6 +12,12 @@ class Episode extends Component {
   formatEpisode = () => {
     const { seasonnumber, episodenumber } = this.props.episode
     return `S${lpad(seasonnumber, 2)}E${lpad(episodenumber, 2)}`;
+  }
+
+  watched = () => {
+    const episodeid = this.props.episode.id;
+    markWatched(episodeid)
+      .then(() => { this.props.removeSelf(episodeid) });
   }
 
   render() {
@@ -41,6 +48,7 @@ class Episode extends Component {
             <Card.Footer.Item
               renderAs="a"
               href="#Yes"
+              onClick={this.watched}
             >
               Watched
             </Card.Footer.Item>
