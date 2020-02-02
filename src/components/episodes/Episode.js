@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Columns, Card, Content, Heading } from 'react-bulma-components';
-import placeholder from '../images/episode_placeholder.png';
-import { markWatched } from '../api/episodes';
+import placeholder from '../../images/episode_placeholder.png';
+import { markWatched } from '../../api/episodes';
 
 function lpad(str, max) {
   str = str.toString();

@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { Container } from 'react-bulma-components';
-import Loader from './Loader';
+import Loader from '../Loader';
 import EpisodeDate from './EpisodeDate';
-import { getEpisodes } from '../api/episodes';
+import { getEpisodes } from '../../api/episodes';
 
 const groupEpisodes = (episodes) => {
   let dates = episodes.reduce((r, a) => {
