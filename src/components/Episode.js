@@ -47,7 +47,6 @@ class Episode extends Component {
           <Card.Footer>
             <Card.Footer.Item
               renderAs="a"
-              href="#Yes"
               onClick={this.watched}
             >
               Watched
