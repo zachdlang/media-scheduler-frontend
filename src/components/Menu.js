@@ -2,19 +2,28 @@ import React, { Component } from 'react';
 import { Navbar } from 'react-bulma-components';
 
 class Menu extends Component {
+  state = {
+    active: false
+  };
+
+  toggleMenu = () => {
+    this.setState({ active: !this.state.active });
+  }
+
   render() {
     return (
-        <Navbar>
+        <Navbar active={this.state.active}>
         <Navbar.Brand>
           <Navbar.Item renderAs="a" href="#">
             <img src="https://bulma.io/images/bulma-logo.png" alt="Bulma: a modern CSS framework based on Flexbox" width="112" height="28" />
           </Navbar.Item>
-          <Navbar.Burger />
+          <Navbar.Burger onClick={this.toggleMenu}>
+          </Navbar.Burger>
         </Navbar.Brand>
         <Navbar.Menu >
           <Navbar.Container>
-            <Navbar.Item href="#">
-              First
+            <Navbar.Item href="/episodes">
+              Episodes
             </Navbar.Item>
             <Navbar.Item href="#">
               Second

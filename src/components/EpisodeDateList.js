@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { Container, Loader } from 'react-bulma-components';
+import { Container } from 'react-bulma-components';
+import Loader from './Loader';
 import EpisodeDate from './EpisodeDate';
 import { getEpisodes } from '../api/episodes';
 
@@ -34,9 +35,7 @@ class EpisodeDateList extends Component {
   render() {
     if (this.state.isLoading) {
       return (
-        <Loader
-          style={{ width: 50, height: 50, marginLeft: 'auto', marginRight: 'auto' }}
-        />
+        <Loader />
       );
     }
 

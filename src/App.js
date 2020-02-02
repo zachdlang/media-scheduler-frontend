@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Menu from './components/Menu';
+import Home from './components/Home';
 import EpisodeDateList from './components/EpisodeDateList';
 import 'react-bulma-components/dist/react-bulma-components.min.css';
 
@@ -15,11 +16,11 @@ class App extends Component {
           <Route
             exact
             path='/'
-            render={(props) => (
-              <React.Fragment>
-                <EpisodeDateList />
-              </React.Fragment>
-            )}
+            component={Home}
+          />
+          <Route
+            path='/episodes'
+            component={EpisodeDateList}
           />
         </div>
       </Router>

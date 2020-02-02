@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { toast } from 'bulma-toast';
+import { apiToken } from './auth';
 
 const _request = async (endpoint, method, data) => {
   return axios
@@ -9,7 +10,7 @@ const _request = async (endpoint, method, data) => {
           method: method || 'get',
           baseURL: process.env.REACT_APP_API_URL,
           headers: {
-            'Authorization': 'AUTH TOKEN',
+            'Authorization': apiToken(),
             'Content-Type': 'application/json'
           },
           data: data
