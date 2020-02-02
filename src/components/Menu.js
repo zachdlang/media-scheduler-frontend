@@ -22,15 +22,25 @@ class Menu extends Component {
         </Navbar.Brand>
         <Navbar.Menu >
           <Navbar.Container>
-            <Navbar.Item href="/episodes">
-              Episodes
+            <Navbar.Item dropdown hoverable>
+              <Navbar.Link>
+                Shows
+              </Navbar.Link>
+              <Navbar.Dropdown>
+                <Navbar.Item href="/episodes">
+                  Episodes
+                </Navbar.Item>
+                <Navbar.Item href="/shows">
+                  Manage
+                </Navbar.Item>
+              </Navbar.Dropdown>
             </Navbar.Item>
-            <Navbar.Item href="#">
-              Second
+            <Navbar.Item href="/movies">
+              Movies
             </Navbar.Item>
           </Navbar.Container>
           <Navbar.Container position="end">
-            <Navbar.Item href="#">
+            <Navbar.Item href="/logout">
               Logout
             </Navbar.Item>
           </Navbar.Container>
