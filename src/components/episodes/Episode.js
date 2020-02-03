@@ -25,7 +25,6 @@ class Episode extends Component {
     return (
       <Columns.Column
       tablet={{ size: 'one-third' }}
-      mobile={{ size: 12 }}
       desktop={{ size: 'one-quarter' }}
       >
         <Card>
