@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import Loader from './Loader';
-import { apiToken } from '../api/auth';
+import { getApiToken } from '../api/auth';
 
-class Home extends Component {
+export default class Home extends Component {
   componentDidMount() {
-    if (!apiToken) window.location = '/login';
+    if (!getApiToken()) window.location = '/login';
     else window.location = '/episodes';
   }
 
@@ -14,5 +14,3 @@ class Home extends Component {
     )
   }
 }
-
-export default Home;

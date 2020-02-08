@@ -1,6 +1,8 @@
 import axios from 'axios';
 import { toast } from 'bulma-toast';
-import { apiToken } from './auth';
+import { getApiToken } from './auth';
+
+const LOGINURL = '/login';
 
 const _request = async (endpoint, method, data) => {
   return axios
@@ -10,15 +12,15 @@ const _request = async (endpoint, method, data) => {
           method: method || 'get',
           baseURL: process.env.REACT_APP_API_URL,
           headers: {
-            'Authorization': apiToken(),
+            'Authorization': getApiToken(),
             'Content-Type': 'application/json'
           },
           data: data
         }
       )
       .catch((error) => {
-        if (error.response.status === 401) {
-          window.location = '/login';
+        if (error.response.status === 401 && window.location.pathname !== LOGINURL) {
+          window.location = LOGINURL;
         } else {
           toast({
             message: error.response.data,
