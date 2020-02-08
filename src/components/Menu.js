@@ -12,7 +12,7 @@ class Menu extends Component {
 
   render() {
     return (
-        <Navbar active={this.state.active}>
+      <Navbar active={this.state.active}>
         <Navbar.Brand>
           <Navbar.Item renderAs="a" href="#">
             <img src="https://bulma.io/images/bulma-logo.png" alt="Bulma: a modern CSS framework based on Flexbox" width="112" height="28" />
