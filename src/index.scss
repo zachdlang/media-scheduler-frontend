@@ -1,7 +1,4 @@
 @import "./sass/variables.scss";
 @import "./sass/loader.scss";
 
-@import "../node_modules/bulma/sass/utilities/_all.sass";
-@import "../node_modules/bulma/sass/base/_all.sass";
-@import "../node_modules/bulma/sass/layout/section.sass";
-@import "../node_modules/bulma/sass/layout/hero.sass";
+@import "../node_modules/bulma";
