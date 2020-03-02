@@ -1,11 +1,13 @@
+import Cookies from 'js-cookie'
 import { post } from './request';
 
 export const getApiToken = () => {
-  return localStorage.getItem('token'); 
+  return Cookies.get('token');
 }
 
 export const setApiToken = (token) => {
-  localStorage.setItem('token', token);
+  // Use .remove to delete a cookie
+  Cookies.set('token', token, {secure: true, sameSite: true});
 }
 
 export const login = async (username, password) => {
