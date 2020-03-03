@@ -5,6 +5,7 @@ import { Form, Icon } from 'react-bulma-components';
 class Input extends Component {
   state = {
     error: '',
+    value: '',
   }
 
   getIcon = () => {
@@ -23,15 +24,17 @@ class Input extends Component {
     }
   }
 
-  handleChange = (event) => {
-    event.preventDefault();
-    if (this.props.required && !event.target.value) {
-      this.setState({ error: 'This field is required.' });
-    } else {
-      this.setState({ error: '' });
-    }
-    this.props.onChange(event);
+  getName = () => this.props.name;
+  getValue = () => this.state.value;
+  handleChange = (event) => this.setState({ value: event.target.value }, this.validate);
+
+  validate = () => {
+    let error = '';
+    if (this.props.required && !this.state.value) error = 'This field is required.';
+    this.setState({ error: error });
+    return error === '';
   }
+
 
   render() {
     return(
@@ -41,7 +44,7 @@ class Input extends Component {
             name={this.props.name}
             type={this.props.type || 'text'}
             placeholder={this.props.placeholder}
-            value={this.props.value}
+            value={this.state.value}
             onChange={this.handleChange}
           />
           {this.getIcon()}

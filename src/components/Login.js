@@ -1,33 +1,39 @@
 import React, { Component } from 'react';
-import { Hero, Container, Columns, Box, Button, Form, Icon } from 'react-bulma-components';
+import { Hero, Container, Columns, Box, Button } from 'react-bulma-components';
 import { User, Lock } from 'react-feather';
-import { getApiToken, login } from '../api/auth';
+import { getApiToken, setApiToken, login } from '../api/auth';
 import Input from './Input';
 
 class Login extends Component {
-  state = {
-    username: '',
-    password: '',
-  };
-
-  setUsername = (e) => {
-    this.setState({ username: e.target.value });
+  constructor() {
+    super();
+    this.inputs = [];
   }
 
-  setPassword = (e) => {
-    this.setState({ password: e.target.value });
+  componentDidMount() {
+    if (getApiToken()) window.location = '/episodes';
   }
 
-  submitLogin = () => {
-    if (this.state.username && this.state.password) {
-      console.log('got creds!');
-    } else {
-      console.log('no creds :(');
+  submitLogin = async (event) => {
+    event.preventDefault();
+    let allValid = true;
+    let data = {};
+    this.inputs.forEach((input) => {
+      let valid = input.validate();
+      if (allValid && !valid) allValid = valid;
+      data[input.getName()] = input.getValue();
+    });
+    if (allValid) {
+      const { username, password } = { ...data };
+      let token = await login(username, password);
+      if (token) {
+        setApiToken(token);
+        window.location = '/episodes';
+      }
     }
   }
 
   render() {
-    const { username, password } = this.state;
     return(
       <Hero size="fullheight" color="primary">
         <Hero.Body>
@@ -37,24 +43,24 @@ class Login extends Component {
                 tablet={{ size: 'one-third' }}
               >
                 <Box>
-                  <Input
-                    icon={User}
-                    name="username"
-                    placeholder="Username"
-                    required={true}
-                    value={username}
-                    onChange={this.setUsername}
-                  />
-                  <Input
-                    icon={Lock}
-                    name="password"
-                    type="password"
-                    placeholder="Password"
-                    required={true}
-                    value={password}
-                    onChange={this.setPassword}
-                  />
-                  <Button fullwidth={true} color="success" onClick={this.submitLogin}>Login</Button>
+                  <form onSubmit={this.submitLogin}>
+                    <Input
+                      ref={instance => { this.inputs.push(instance); }}
+                      icon={User}
+                      name="username"
+                      placeholder="Username"
+                      required={true}
+                      />
+                    <Input
+                      ref={instance => { this.inputs.push(instance); }}
+                      icon={Lock}
+                      name="password"
+                      type="password"
+                      placeholder="Password"
+                      required={true}
+                    />
+                    <Button fullwidth={true} submit={true} color="success">Login</Button>
+                  </form>
                 </Box>
               </Columns.Column>
             </Columns>

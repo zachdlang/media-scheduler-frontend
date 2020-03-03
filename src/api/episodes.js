@@ -2,7 +2,8 @@ import { get, put } from './request';
 
 export const getEpisodes = async () => {
   let episodes = await get('/episode/list')
-    .then((res) => res.data);
+    .then((res) => res.data)
+    .catch(() => {});
   return episodes;
 }
 

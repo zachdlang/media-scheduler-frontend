@@ -25,8 +25,10 @@ const _request = async (endpoint, method, data) => {
           toast({
             message: error.response.data,
             type: 'is-danger',
-            animate: { in: 'fadeIn', out: 'fadeOut' }
+            position: 'bottom-center',
+            animate: { in: 'fadeInUp', out: 'fadeOutDown' }
           });
+          return Promise.reject(error.response.data);
         }
       });
 }
