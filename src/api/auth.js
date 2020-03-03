@@ -6,8 +6,11 @@ export const getApiToken = () => {
 }
 
 export const setApiToken = (token) => {
-  // Use .remove to delete a cookie
   Cookies.set('token', token, {secure: true, sameSite: true});
+}
+
+export const clearApiToken = () => {
+  Cookies.remove('token');
 }
 
 export const login = async (username, password) => {
