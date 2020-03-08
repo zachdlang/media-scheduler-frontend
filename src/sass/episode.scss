@@ -1,0 +1,10 @@
+@import "./variables.scss";
+
+.episode-mark-watched {
+  cursor: pointer;
+}
+
+.episode-mark-watched:hover, .episode-mark-watched:active {
+  color: white;
+  background-color: $success;
+}
