@@ -1,10 +1,28 @@
 import React, { Component } from 'react';
 import { Navbar } from 'react-bulma-components';
 
-class Menu extends Component {
+class HeaderMenu extends Component {
   state = {
     active: false
-  };
+  }
+
+  isPage = (key) => {
+    let path;
+    switch(key) {
+      case 'episodes':
+        path = '/episodes';
+        break;
+      case 'shows':
+        path = '/shows';
+        break;
+      case 'movies':
+        path = '/movies';
+        break;
+      default:
+        path = null;
+    }
+    return window.location.pathname === path;
+  }
 
   toggleMenu = () => {
     this.setState({ active: !this.state.active });
@@ -22,20 +40,13 @@ class Menu extends Component {
         </Navbar.Brand>
         <Navbar.Menu >
           <Navbar.Container>
-            <Navbar.Item dropdown hoverable>
-              <Navbar.Link>
-                Shows
-              </Navbar.Link>
-              <Navbar.Dropdown>
-                <Navbar.Item href="/episodes">
-                  Episodes
-                </Navbar.Item>
-                <Navbar.Item href="/shows">
-                  Manage
-                </Navbar.Item>
-              </Navbar.Dropdown>
+            <Navbar.Item href="/episodes" active={this.isPage('episodes')}>
+              Episodes
             </Navbar.Item>
-            <Navbar.Item href="/movies">
+            <Navbar.Item href="/shows" active={this.isPage('shows')}>
+              Shows
+            </Navbar.Item>
+            <Navbar.Item href="/movies" active={this.isPage('movies')}>
               Movies
             </Navbar.Item>
           </Navbar.Container>
@@ -50,4 +61,4 @@ class Menu extends Component {
   }
 }
 
-export default Menu;
+export default HeaderMenu;

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Container } from 'react-bulma-components';
+import { Container, Box } from 'react-bulma-components';
 import Loader from 'components/Loader';
 import EpisodeDate from 'components/episodes/EpisodeDate';
 import { getEpisodes } from 'api/episodes';
@@ -41,16 +41,18 @@ class EpisodeDateList extends Component {
 
     return (
       <Container>
-        {
-          Object.keys(this.state.dates).map((key) => (
-            <EpisodeDate
-              key={key}
-              date={key}
-              episodes={this.state.dates[key]}
-              removeSelf={this.removeDate}
-            />
-          ))
-        }
+        <Box>
+          {
+            Object.keys(this.state.dates).map((key) => (
+              <EpisodeDate
+                key={key}
+                date={key}
+                episodes={this.state.dates[key]}
+                removeSelf={this.removeDate}
+              />
+            ))
+          }
+        </Box>
       </Container>
     );
   }

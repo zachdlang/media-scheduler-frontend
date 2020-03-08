@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import Menu from 'components/Menu';
+import { Hero } from 'react-bulma-components';
+import HeaderMenu from 'components/HeaderMenu';
+import FooterMenu from 'components/FooterMenu';
 import Home from 'components/Home';
 import Login from 'components/Login';
 import Logout from 'components/Logout';
@@ -13,31 +15,40 @@ require('dotenv').config()
 class App extends Component {
   render() {
     return (
-      <Router>
-        <div className="App">
-          <Menu />
-          <Switch>
-            <Route
-              exact
-              path='/'
-              component={Home}
-            />
-            <Route
-              path='/login'
-              component={Login}
-            />
-            <Route
-              path='/logout'
-              component={Logout}
-            />
-            <Route
-              path='/episodes'
-              component={EpisodeDateList}
-            />
-            <Route component={PageNotFound} />
-          </Switch>
-        </div>
-      </Router>
+      <Hero size="fullheight" color="primary">
+        <Router>
+          <div className="App">
+            <Hero.Head renderAs="header">
+              <HeaderMenu />
+            </Hero.Head>
+            <Hero.Body>
+              <Switch>
+                <Route
+                  exact
+                  path='/'
+                  component={Home}
+                />
+                <Route
+                  path='/login'
+                  component={Login}
+                />
+                <Route
+                  path='/logout'
+                  component={Logout}
+                />
+                <Route
+                  path='/episodes'
+                  component={EpisodeDateList}
+                />
+                <Route component={PageNotFound} />
+              </Switch>
+            </Hero.Body>
+            <Hero.Footer renderAs="footer">
+              <FooterMenu />
+            </Hero.Footer>
+          </div>
+        </Router>
+      </Hero>
     );
   }
 }
