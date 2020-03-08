@@ -2,6 +2,7 @@
 
 .episode-mark-watched {
   cursor: pointer;
+  transition: 0.4s;
 }
 
 .episode-mark-watched:hover, .episode-mark-watched:active {
