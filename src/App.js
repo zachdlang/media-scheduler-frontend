@@ -4,6 +4,7 @@ import Menu from './components/Menu';
 import Home from './components/Home';
 import Login from './components/Login';
 import Logout from './components/Logout';
+import PageNotFound from './components/PageNotFound';
 import EpisodeDateList from './components/episodes/EpisodeDateList';
 import 'react-bulma-components/dist/react-bulma-components.min.css';
 
@@ -32,6 +33,7 @@ class App extends Component {
             path='/episodes'
             component={EpisodeDateList}
           />
+          <Route component={PageNotFound} />
         </div>
       </Router>
     );
