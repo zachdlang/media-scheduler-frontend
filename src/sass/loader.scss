@@ -1,10 +1,14 @@
 @import "./variables.scss";
 
 .loading-wheel {
-  width: 100px;
-  height: 100px;
   margin: 200px auto;
-  border-color: $primary;
-  border-top-color: transparent;
-  border-right-color: transparent;
+  padding: 30px;
+  border-color: $primary !important;
+  border-top-color: transparent !important;
+  border-right-color: transparent !important;
+}
+
+.loading-wheel-inline {
+  margin: auto;
+  padding: 10px;
 }

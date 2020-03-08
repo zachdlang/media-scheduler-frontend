@@ -1,5 +1,5 @@
 @import "./sass/variables.scss";
-@import "./sass/loader.scss";
 
+// Override defaults in packages
 @import "../node_modules/bulma";
 @import "../node_modules/animate.css";

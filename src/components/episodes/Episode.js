@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Columns, Card, Content, Heading } from 'react-bulma-components';
 import placeholder from '../../images/episode_placeholder.png';
+import Loader from '../Loader';
 import { markWatched } from '../../api/episodes';
 import "../../sass/episode.scss";
 
@@ -10,15 +11,39 @@ function lpad(str, max) {
 }
 
 class Episode extends Component {
+  state = {
+    isLoading: false
+  }
+
   formatEpisode = () => {
     const { seasonnumber, episodenumber } = this.props.episode
     return `S${lpad(seasonnumber, 2)}E${lpad(episodenumber, 2)}`;
   }
 
   watched = () => {
+    this.setState({ isLoading: true });
     const episodeid = this.props.episode.id;
     markWatched(episodeid)
       .then(() => { this.props.removeSelf(episodeid) });
+  }
+
+  footerItem = () => {
+    if (this.state.isLoading) {
+      return (
+        <Card.Footer.Item>
+          <Loader inline={true} />
+        </Card.Footer.Item>
+      );
+    } else {
+      return (
+        <Card.Footer.Item
+          className="episode-mark-watched"
+          onClick={this.watched}
+        >
+          Watched
+        </Card.Footer.Item>
+      );
+    }
   }
 
   render() {
@@ -45,12 +70,7 @@ class Episode extends Component {
             </Content>
           </Card.Content>
           <Card.Footer>
-            <Card.Footer.Item
-              className="episode-mark-watched"
-              onClick={this.watched}
-            >
-              Watched
-            </Card.Footer.Item>
+            {this.footerItem()}
           </Card.Footer>
         </Card>
       </Columns.Column>
