@@ -19,7 +19,7 @@ export const clearApiToken = () => {
 }
 
 export const login = async (username, password) => {
-  let token = await post('/auth/', {'username': username, 'password': password})
+  let token = await post('/auth', {'username': username, 'password': password})
     .then((res) => res.data)
     .catch(() => {});
   return token;
