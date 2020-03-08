@@ -6,7 +6,12 @@ export const getApiToken = () => {
 }
 
 export const setApiToken = (token) => {
-  Cookies.set('token', token, {secure: true, sameSite: true});
+  if (process.env.NODE_ENV === 'development') {
+    console.log('Setting API token without HTTPS required.');
+    Cookies.set('token', token);
+  } else {
+    Cookies.set('token', token, {secure: true, sameSite: true});
+  }
 }
 
 export const clearApiToken = () => {
