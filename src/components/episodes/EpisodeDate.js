@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Section, Heading, Columns } from 'react-bulma-components';
-import Episode from './Episode';
+import Episode from 'components/episodes/Episode';
 
 class EpisodeDate extends Component {
   state = {

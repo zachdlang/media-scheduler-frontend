@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { Columns, Card, Content, Heading } from 'react-bulma-components';
-import placeholder from '../../images/episode_placeholder.png';
-import Loader from '../Loader';
-import { markWatched } from '../../api/episodes';
-import "../../sass/episode.scss";
+import placeholder from 'images/episode_placeholder.png';
+import Loader from 'components/Loader';
+import { markWatched } from 'api/episodes';
+import "sass/episode.scss";
 
 function lpad(str, max) {
   str = str.toString();

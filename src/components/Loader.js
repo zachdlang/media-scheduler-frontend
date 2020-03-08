@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Loader as BulmaLoader } from 'react-bulma-components';
-import "../sass/loader.scss";
+import "sass/loader.scss";
 
 class Loader extends Component {
   classes = () => {

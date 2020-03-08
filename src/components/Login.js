@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { Hero, Container, Columns, Box, Button } from 'react-bulma-components';
 import { User, Lock } from 'react-feather';
-import { getApiToken, setApiToken, login } from '../api/auth';
-import Input from './Input';
+import { getApiToken, setApiToken, login } from 'api/auth';
+import Input from 'components/Input';
 
 class Login extends Component {
   constructor() {

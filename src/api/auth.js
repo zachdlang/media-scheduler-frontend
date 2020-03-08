@@ -1,5 +1,5 @@
 import Cookies from 'js-cookie'
-import { post } from './request';
+import { post } from 'api/request';
 
 export const getApiToken = () => {
   return Cookies.get('token');

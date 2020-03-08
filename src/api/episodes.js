@@ -1,4 +1,4 @@
-import { get, put } from './request';
+import { get, put } from 'api/request';
 
 export const getEpisodes = async () => {
   let episodes = await get('/episode/list')

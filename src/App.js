@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import Menu from './components/Menu';
-import Home from './components/Home';
-import Login from './components/Login';
-import Logout from './components/Logout';
-import PageNotFound from './components/PageNotFound';
-import EpisodeDateList from './components/episodes/EpisodeDateList';
+import Menu from 'components/Menu';
+import Home from 'components/Home';
+import Login from 'components/Login';
+import Logout from 'components/Logout';
+import PageNotFound from 'components/PageNotFound';
+import EpisodeDateList from 'components/episodes/EpisodeDateList';
 import 'react-bulma-components/dist/react-bulma-components.min.css';
 
 require('dotenv').config()

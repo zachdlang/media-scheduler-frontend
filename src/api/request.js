@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { toast } from 'bulma-toast';
-import { getApiToken } from './auth';
+import { getApiToken } from 'api/auth';
 
 const LOGINURL = '/login';
 
