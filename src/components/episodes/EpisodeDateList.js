@@ -6,8 +6,8 @@ import { getEpisodes } from 'api/episodes';
 
 const groupEpisodes = (episodes) => {
   let dates = episodes.reduce((r, a) => {
-    r[a.airdate_str] = r[a.airdate_str] || [];
-    r[a.airdate_str].push(a);
+    r[a.airdate] = r[a.airdate] || [];
+    r[a.airdate].push(a);
     return r;
   }, Object.create(null));
   return dates;
