@@ -8,7 +8,7 @@ class FooterMenu extends Component {
       <Container>
         <Content style={{ 'text-align': 'center', 'padding': '3rem' }}>
           <p>
-            <a href="https://github.com/zachdlang/" target="_blank" rel="noopener noreferrer">
+            <a href="https://github.com/zendamacf/" target="_blank" rel="noopener noreferrer">
               <img class="github-logo" src="/github-white.png" alt="GitHub Logo" />
             </a>
             Built by Zach Lang

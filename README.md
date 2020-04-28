@@ -1,6 +1,6 @@
 # Media Scheduler Frontend
 
-A React frontend for [https://github.com/zachdlang/media-scheduler-api](Media Scheduler API).
+A React frontend for [https://github.com/zendamacf/media-scheduler-api](Media Scheduler API).
 
 ## Quick Start
 
