@@ -1,5 +1,9 @@
 @import "sass/variables.scss";
 
+.hero.is-primary .box .title {
+  color: inherit;
+}
+
 // Override defaults in packages
 @import "../node_modules/bulma";
 @import "../node_modules/animate.css";
