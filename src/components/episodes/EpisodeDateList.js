@@ -35,7 +35,11 @@ class EpisodeDateList extends Component {
   render() {
     if (this.state.isLoading) {
       return (
-        <Loader />
+        <Container>
+          <Box>
+            <Loader />
+          </Box>
+        </Container>
       );
     }
 
