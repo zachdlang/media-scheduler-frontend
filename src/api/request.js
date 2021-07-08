@@ -36,3 +36,4 @@ const _request = async (endpoint, method, data) => {
 export const get = async (endpoint) => _request(endpoint);
 export const post = async (endpoint, data) => _request(endpoint, 'post', data);
 export const put = async (endpoint, data) => _request(endpoint, 'put', data);
+export const del = async (endpoint, data) => _request(endpoint, 'delete', data);

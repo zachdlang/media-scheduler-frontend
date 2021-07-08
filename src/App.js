@@ -8,6 +8,7 @@ import Login from 'components/Login';
 import Logout from 'components/Logout';
 import PageNotFound from 'components/PageNotFound';
 import EpisodeDateList from 'components/episodes/EpisodeDateList';
+import ShowList from 'components/shows/ShowList';
 import 'react-bulma-components/dist/react-bulma-components.min.css';
 
 require('dotenv').config()
@@ -39,6 +40,10 @@ class App extends Component {
                 <Route
                   path='/episodes'
                   component={EpisodeDateList}
+                />
+                <Route
+                  path='/shows'
+                  component={ShowList}
                 />
                 <Route component={PageNotFound} />
               </Switch>

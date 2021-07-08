@@ -1,0 +1,14 @@
+@import "sass/variables.scss";
+
+.show-subscribe:hover, .show-subscribe:active {
+  cursor: pointer;
+}
+
+.show-subscribed {
+  color: white;
+  background-color: $success;
+}
+
+.show-subscribed:hover, .show-subscribed:active {
+  cursor: pointer;
+}
