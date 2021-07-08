@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { Columns, Card } from 'react-bulma-components';
+import { Columns, Card, Icon } from 'react-bulma-components';
+import { Check, Plus } from 'react-feather';
 import Loader from 'components/Loader';
 import { followShow, unfollowShow } from 'api/shows';
 import "sass/show.scss";
@@ -39,16 +40,25 @@ class Show extends Component {
         </Card.Footer.Item>
       );
     } else {
-      const className = following ? 'show-subscribed' : 'show-subscribe';
-      const textContent = following ? 'Subscribed' : 'Subscribe';
-      const onClick = following ? this.unfollow : this.follow;
+      let className;
+      let btnContent;
+      let onClick;
+      if (following) {
+        className = 'show-subscribed';
+        btnContent = <span className="icon-text"><Icon>{React.createElement(Check)}</Icon>&nbsp;<span>Subscribed</span></span>;
+        onClick = this.unfollow;
+      } else {
+        className = 'show-subscribe';
+        btnContent = <span className="icon-text"><Icon>{React.createElement(Plus)}</Icon>&nbsp;<span>Subscribe</span></span>;
+        onClick = this.follow;
+      }
 
       return (
         <Card.Footer.Item
           className={className}
           onClick={onClick}
         >
-          {textContent}
+          {btnContent}
         </Card.Footer.Item>
       );
     }
